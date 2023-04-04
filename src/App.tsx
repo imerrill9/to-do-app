@@ -33,12 +33,12 @@ function App() {
         >
           <List
             title="Task List"
-            toDo={true}
+            complete={false}
             tasks={inProgressTasks}
             renderParent={handleRender}
           />
         </Paper>
-        {completeTasks && (
+        {completeTasks && completeTasks.length > 0 && (
           <Paper
             variant="outlined"
             sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
@@ -46,7 +46,7 @@ function App() {
             {
               <List
                 title="Done"
-                toDo={false}
+                complete={false}
                 tasks={completeTasks}
                 renderParent={handleRender}
               />

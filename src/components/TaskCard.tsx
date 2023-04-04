@@ -18,29 +18,22 @@ export default function TaskCard({
   handleRestore,
   handleDelete,
 }: TaskCardProps) {
-  function TaskButtons() {
-    if (complete) {
-      return (
-        <>
-          <Button onClick={handleRestore}>Restore</Button>
-          <Button onClick={handleDelete}>Delete</Button>
-        </>
-      );
-    }
-    return (
-      <>
-        <Button onClick={handleComplete}>Complete</Button>
-      </>
-    );
-  }
-
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <Typography>{description}</Typography>
       </CardContent>
       <CardActions>
-        <TaskButtons />
+        {complete ? (
+          <>
+            <Button onClick={handleRestore}>Restore</Button>
+            <Button onClick={handleDelete}>Delete</Button>
+          </>
+        ) : (
+          <>
+            <Button onClick={handleComplete}>Complete</Button>
+          </>
+        )}
       </CardActions>
     </Card>
   );

@@ -14,12 +14,12 @@ import {
 
 interface ListProps {
   title: string;
-  toDo: boolean;
+  complete: boolean;
   tasks: Task[] | undefined;
   renderParent: () => void;
 }
 
-export default function List({ title, tasks, toDo, renderParent }: ListProps) {
+export default function List({ title, tasks, renderParent, complete }: ListProps) {
   const [open, setOpen] = useState(false);
   const [stateTasks, setStateTasks] = useState<Task[]>(tasks ?? []);
   const handleOpen = () => setOpen(true);
@@ -63,7 +63,7 @@ export default function List({ title, tasks, toDo, renderParent }: ListProps) {
       <Typography variant="h4" align="center">
         {title}
       </Typography>
-      {toDo && (
+      {!complete && (
         <Stack direction="row" spacing={2}>
           <Button variant="outlined" onClick={handleOpen}>
             Create Task
