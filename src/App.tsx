@@ -46,7 +46,7 @@ function App() {
             {
               <List
                 title="Done"
-                complete={false}
+                complete={true}
                 tasks={completeTasks}
                 renderParent={handleRender}
               />
